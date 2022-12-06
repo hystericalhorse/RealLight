@@ -19,9 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Materials\Lambert.cpp" />
     <ClCompile Include="Objects\Sphere.cpp" />
     <ClCompile Include="Renderer\Canvas.cpp" />
     <ClCompile Include="Renderer\Renderer.cpp" />
+    <ClCompile Include="Renderer\Scene.cpp" />
     <ClCompile Include="Run\Main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -34,6 +36,7 @@
     <ClInclude Include="Renderer\Canvas.h" />
     <ClInclude Include="Renderer\Material.h" />
     <ClInclude Include="Renderer\Renderer.h" />
+    <ClInclude Include="Renderer\Scene.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

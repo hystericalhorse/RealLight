@@ -1,6 +1,7 @@
 #pragma once
 
 #include <glm.hpp>
+#include <glm/gtx/norm.hpp>
 #include <cstdlib>
 #include <algorithm>
 
@@ -38,4 +39,20 @@ template<typename T>
 inline T twerp(T x, T y, float t)
 {
 	return (x * (1.0f - t)) + (y * (t));
+}
+
+/// <summary>
+/// returns a random point within a unit sphere
+/// </summary>
+inline glm::vec3 spherePoint()
+{
+    glm::vec3 point;
+
+    do
+    {
+        point = glm::vec3{randomf(-1, 1), randomf(-1, 1), randomf(-1, 1) };
+    }
+    while (glm::length2(point) >= 1);
+
+    return point;
 }

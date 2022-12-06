@@ -8,11 +8,35 @@ int main(int, char**)
 	RealLight::Renderer renderer;
 
 	renderer.Init();
-	renderer.CreateWindow(1200, 600);
+	renderer.CreateWindow(400, 200);
 
-	RealLight::Canvas canvas(1200, 600, renderer);
+	RealLight::Scene scene;
 
-	auto sphere = std::make_unique<RealLight::Sphere>(glm::vec3{ 0, 0, 1 }, 0.5f, nullptr);
+	RealLight::Canvas canvas(400, 200, renderer);
+
+	scene.addObject
+	(
+		std::make_unique<RealLight::Sphere>
+		(
+			glm::vec3{ 0, 0, -0.5 }, 0.2f, std::make_unique<RealLight::Lambert>(color3{ 0, 1, 0 })
+		)
+	);
+
+	scene.addObject
+	(
+		std::make_unique<RealLight::Sphere>
+		(
+			glm::vec3{ 0.2, -0.7, -0.5 }, 0.5f, std::make_unique<RealLight::Lambert>(color3{ 1, 0, 0 })
+		)
+	);
+
+	scene.addObject
+	(
+		std::make_unique<RealLight::Sphere>
+		(
+			glm::vec3{ -0.2, 1.2, -0.5 }, 1.0f, std::make_unique<RealLight::Lambert>(color3{ 0, 0, 1 })
+			)
+	);
 
 	// Run
 	bool quit = false;
@@ -39,7 +63,7 @@ int main(int, char**)
 		// Render
 		canvas.Clear({0,0,0,1});
 		
-		renderer.Render(canvas, sphere.get());
+		renderer.Render(canvas, scene);
 		
 		canvas.Update();
 

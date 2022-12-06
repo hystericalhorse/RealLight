@@ -4,6 +4,8 @@
 
 namespace RealLight
 {
+	class Material;
+
 	struct Ray
 	{
 		Ray() = default;
@@ -11,7 +13,7 @@ namespace RealLight
 		: origin {origin}, dir{dir}
 		{}
 
-		glm::vec3 get_point(float dis) { return origin + (dir * dis); }
+		glm::vec3 get_point(float dis) const { return origin + (dir * dis); }
 
 		glm::vec3 origin{ 0 };
 		glm::vec3 dir{ 0 };
@@ -23,5 +25,7 @@ namespace RealLight
 
 		glm::vec3 point{ 0 };
 		glm::vec3 normal{ 0 };
+
+		Material* material = nullptr;
 	};
 }

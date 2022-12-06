@@ -39,7 +39,7 @@ namespace RealLight
 		return true;
 	}
 
-	void Renderer::Render(Canvas& canvas, Object* object)
+	void Renderer::Render(Canvas& canvas, Scene& scene)
 	{
 		glm::vec3 lowerLeft{ -2, -1, -1 };
 		glm::vec3 eye{ 0, 0, 0 };
@@ -57,15 +57,7 @@ namespace RealLight
 				Ray ray{ eye, direction };
 
 				RaycastHit raycastHit;
-				color3 color;
-				if (object->Hit(ray, 0.01f, 100.0f, raycastHit))
-				{
-					color = color3{0, 0, 1};
-				}
-				else
-				{
-					color = GetBackgroundByRay(ray);
-				}
+				color3 color = scene.Trace(ray, 0.01, 1000.0, raycastHit, 5);
 
 				canvas.DrawPoint({ x, y }, color4(color, 1));
 			}
@@ -87,6 +79,6 @@ namespace RealLight
 		glm::vec3 direction = glm::normalize(ray.dir);
 		float t = 0.5f * (direction.y + 1.0f);
 
-		return twerp(color3{ 1.0f }, color3{ 0.5f, 0.7f, 1.0f }, t);
+		return twerp(color3{ 0.0f, 0.0f, 0.6f }, color3{ 0.4f, 0.0f, 0.4f }, t);
 	}
 }

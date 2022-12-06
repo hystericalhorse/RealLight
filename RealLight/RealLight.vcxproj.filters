@@ -25,6 +25,9 @@
     <Filter Include="Source Files\Objects">
       <UniqueIdentifier>{3b4f28c2-5a9f-48e9-9b95-80c36130bbbb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Renderer\Materials">
+      <UniqueIdentifier>{ce495b1f-3125-4dcb-b771-b347e3af3fe1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Run\Main.cpp">
@@ -38,6 +41,12 @@
     </ClCompile>
     <ClCompile Include="Objects\Sphere.cpp">
       <Filter>Source Files\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Materials\Lambert.cpp">
+      <Filter>Source Files\Renderer\Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer\Scene.cpp">
+      <Filter>Source Files\Renderer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -67,6 +76,9 @@
     </ClInclude>
     <ClInclude Include="Objects\Sphere.h">
       <Filter>Source Files\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer\Scene.h">
+      <Filter>Source Files\Renderer</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

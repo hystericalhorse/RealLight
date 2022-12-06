@@ -2,6 +2,7 @@
 
 #include "Renderer/Renderer.h"
 #include "Renderer/Canvas.h"
+#include "Renderer/Scene.h"
 
 #include "Math/MathUtils.h"
 

@@ -18,5 +18,7 @@ namespace RealLight
 	protected:
 		glm::vec3 _center{ 0 };
 		float _radius = 0;
+
+
 	};
 }
