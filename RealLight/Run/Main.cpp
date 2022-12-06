@@ -1,4 +1,3 @@
-#include <iostream>
 #include "RealLight.h"
 
 using namespace std;
@@ -9,7 +8,11 @@ int main(int, char**)
 	RealLight::Renderer renderer;
 
 	renderer.Init();
-	renderer.CreateWindow(800, 600);
+	renderer.CreateWindow(1200, 600);
+
+	RealLight::Canvas canvas(1200, 600, renderer);
+
+	auto sphere = std::make_unique<RealLight::Sphere>(glm::vec3{ 0, 0, 1 }, 0.5f, nullptr);
 
 	// Run
 	bool quit = false;
@@ -23,7 +26,25 @@ int main(int, char**)
 		case SDL_QUIT:
 			quit = true;
 			break;
+		case SDL_KEYDOWN:
+			switch (event.key.keysym.sym)
+			{
+			case SDLK_ESCAPE:
+				quit = true;
+				break;
+			}
+			break;
 		}
+
+		// Render
+		canvas.Clear({0,0,0,1});
+		
+		renderer.Render(canvas, sphere.get());
+		
+		canvas.Update();
+
+		renderer.CopyCanvas(canvas);
+		renderer.Present();
 	}
 
 	// Shutdown

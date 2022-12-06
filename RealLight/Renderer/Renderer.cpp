@@ -38,4 +38,55 @@ namespace RealLight
 		}
 		return true;
 	}
+
+	void Renderer::Render(Canvas& canvas, Object* object)
+	{
+		glm::vec3 lowerLeft{ -2, -1, -1 };
+		glm::vec3 eye{ 0, 0, 0 };
+		glm::vec3 right{ 4, 0, 0 };
+		glm::vec3 up{ 0, 2, 0 };
+
+		for (int y = 0; y < canvas.GetHeight(); y++)
+		{
+			for (int x = 0; x < canvas.GetWidth(); x++)
+			{
+				float u = x / (float)canvas.GetWidth();
+				float v = 1 - (y / (float)canvas.GetHeight());
+
+				glm::vec3 direction = lowerLeft + (u * right) + (v * up);
+				Ray ray{ eye, direction };
+
+				RaycastHit raycastHit;
+				color3 color;
+				if (object->Hit(ray, 0.01f, 100.0f, raycastHit))
+				{
+					color = color3{0, 0, 1};
+				}
+				else
+				{
+					color = GetBackgroundByRay(ray);
+				}
+
+				canvas.DrawPoint({ x, y }, color4(color, 1));
+			}
+		}
+	}
+
+	void Renderer::CopyCanvas(const Canvas& canvas)
+	{
+		SDL_RenderCopy(_renderer, canvas._texture, nullptr, nullptr);
+	}
+
+	void Renderer::Present()
+	{
+		SDL_RenderPresent(_renderer);
+	}
+
+	color3 Renderer::GetBackgroundByRay(const Ray& ray)
+	{
+		glm::vec3 direction = glm::normalize(ray.dir);
+		float t = 0.5f * (direction.y + 1.0f);
+
+		return twerp(color3{ 1.0f }, color3{ 0.5f, 0.7f, 1.0f }, t);
+	}
 }
