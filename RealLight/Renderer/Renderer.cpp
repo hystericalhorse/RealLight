@@ -39,7 +39,7 @@ namespace RealLight
 		return true;
 	}
 
-	void Renderer::Render(Canvas& canvas, Scene& scene)
+	void Renderer::Render(Canvas& canvas, Scene& scene, Camera& camera)
 	{
 		glm::vec3 lowerLeft{ -2, -1, -1 };
 		glm::vec3 eye{ 0, 0, 0 };
@@ -50,11 +50,11 @@ namespace RealLight
 		{
 			for (int x = 0; x < canvas.GetWidth(); x++)
 			{
-				float u = x / (float)canvas.GetWidth();
-				float v = 1 - (y / (float)canvas.GetHeight());
+				glm::vec2 point = glm::vec2{ x, y } / glm::vec2{ canvas._width, canvas._height };
 
-				glm::vec3 direction = lowerLeft + (u * right) + (v * up);
-				Ray ray{ eye, direction };
+				point.y = 1.0f - point.y;
+
+				Ray ray = camera.PointToRay(point);
 
 				RaycastHit raycastHit;
 				color3 color = scene.Trace(ray, 0.01, 1000.0, raycastHit, 5);

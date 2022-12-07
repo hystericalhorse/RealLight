@@ -4,6 +4,7 @@
 #include "Math/Ray.h"
 #include "Objects/Object.h"
 #include "Renderer/Scene.h"
+#include "Renderer/Camera.h"
 
 #include <SDL.h>
 
@@ -18,7 +19,7 @@ namespace RealLight
 		void Shutdown();
 		bool CreateWindow(int width, int height);
 
-		void Render(Canvas& canvas, Scene& scene);
+		void Render(Canvas& canvas, Scene& scene, Camera& camera);
 
 		void CopyCanvas(const Canvas& canvas);
 		void Present();

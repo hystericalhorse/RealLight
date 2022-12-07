@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="Materials\Lambert.cpp" />
     <ClCompile Include="Objects\Sphere.cpp" />
+    <ClCompile Include="Renderer\Camera.cpp" />
     <ClCompile Include="Renderer\Canvas.cpp" />
     <ClCompile Include="Renderer\Renderer.cpp" />
     <ClCompile Include="Renderer\Scene.cpp" />
@@ -33,6 +34,7 @@
     <ClInclude Include="Objects\Object.h" />
     <ClInclude Include="Objects\Sphere.h" />
     <ClInclude Include="RealLight.h" />
+    <ClInclude Include="Renderer\Camera.h" />
     <ClInclude Include="Renderer\Canvas.h" />
     <ClInclude Include="Renderer\Material.h" />
     <ClInclude Include="Renderer\Renderer.h" />

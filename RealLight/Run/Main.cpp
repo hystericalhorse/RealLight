@@ -18,7 +18,7 @@ int main(int, char**)
 	(
 		std::make_unique<RealLight::Sphere>
 		(
-			glm::vec3{ 0, 0, -0.5 }, 0.2f, std::make_unique<RealLight::Lambert>(color3{ 0, 1, 0 })
+			glm::vec3{ 0, 0.3, -1 }, 0.2f, std::make_unique<RealLight::Lambert>(color3{ 0, 1, 1 })
 		)
 	);
 
@@ -26,17 +26,19 @@ int main(int, char**)
 	(
 		std::make_unique<RealLight::Sphere>
 		(
-			glm::vec3{ 0.2, -0.7, -0.5 }, 0.5f, std::make_unique<RealLight::Lambert>(color3{ 1, 0, 0 })
-		)
-	);
-
-	scene.addObject
-	(
-		std::make_unique<RealLight::Sphere>
-		(
-			glm::vec3{ -0.2, 1.2, -0.5 }, 1.0f, std::make_unique<RealLight::Lambert>(color3{ 0, 0, 1 })
+			glm::vec3{ 0, 0, -1 }, 0.1f, std::make_unique<RealLight::Lambert>(color3{ 1, 0, 1 })
 			)
 	);
+
+	scene.addObject
+	(
+		std::make_unique<RealLight::Sphere>
+		(
+			glm::vec3{ 0, -0.2, -1 }, 0.1f, std::make_unique<RealLight::Lambert>(color3{ 1, 0, 0 })
+			)
+	);
+
+	RealLight::Camera camera({ 0, 0, -1.5 }, { 0, 0, 0 }, { 0, 1, 0 }, 60.0f, 400 / (float) 200);
 
 	// Run
 	bool quit = false;
@@ -63,7 +65,7 @@ int main(int, char**)
 		// Render
 		canvas.Clear({0,0,0,1});
 		
-		renderer.Render(canvas, scene);
+		renderer.Render(canvas, scene, camera);
 		
 		canvas.Update();
 
