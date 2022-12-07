@@ -19,7 +19,7 @@ namespace RealLight
 		void Shutdown();
 		bool CreateWindow(int width, int height);
 
-		void Render(Canvas& canvas, Scene& scene, Camera& camera);
+		void Render(Canvas& canvas, Scene& scene, Camera& camera, int samples = 5);
 
 		void CopyCanvas(const Canvas& canvas);
 		void Present();

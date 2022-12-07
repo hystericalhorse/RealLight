@@ -34,7 +34,7 @@ int main(int, char**)
 	(
 		std::make_unique<RealLight::Sphere>
 		(
-			glm::vec3{ 0, -0.2, -1 }, 0.1f, std::make_unique<RealLight::Lambert>(color3{ 1, 0, 0 })
+			glm::vec3{ 0, -0.6, -1 }, 0.5f, std::make_unique<RealLight::Lambert>(color3{ 1, 0, 0 })
 			)
 	);
 
@@ -65,7 +65,7 @@ int main(int, char**)
 		// Render
 		canvas.Clear({0,0,0,1});
 		
-		renderer.Render(canvas, scene, camera);
+		renderer.Render(canvas, scene, camera, 1);
 		
 		canvas.Update();
 

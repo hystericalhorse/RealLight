@@ -1,4 +1,5 @@
 #include "Renderer.h"
+#include "Math/MathUtils.h"
 #include <iostream>
 
 namespace RealLight
@@ -39,7 +40,7 @@ namespace RealLight
 		return true;
 	}
 
-	void Renderer::Render(Canvas& canvas, Scene& scene, Camera& camera)
+	void Renderer::Render(Canvas& canvas, Scene& scene, Camera& camera, int samples)
 	{
 		glm::vec3 lowerLeft{ -2, -1, -1 };
 		glm::vec3 eye{ 0, 0, 0 };
@@ -50,15 +51,20 @@ namespace RealLight
 		{
 			for (int x = 0; x < canvas.GetWidth(); x++)
 			{
-				glm::vec2 point = glm::vec2{ x, y } / glm::vec2{ canvas._width, canvas._height };
+				color3 color{ 0 };
+				for (int i = 0; i < samples; i++)
+				{
+					glm::vec2 point = glm::vec2{ randomDecimal() + x, randomDecimal() + y } / glm::vec2{ canvas._width, canvas._height };
 
-				point.y = 1.0f - point.y;
+					point.y = 1.0f - point.y;
 
-				Ray ray = camera.PointToRay(point);
+					Ray ray = camera.PointToRay(point);
 
-				RaycastHit raycastHit;
-				color3 color = scene.Trace(ray, 0.01, 1000.0, raycastHit, 5);
+					RaycastHit raycastHit;
+					color += scene.Trace(ray, 0.01, 1000.0, raycastHit, 5);
+				}
 
+				color = color / color3(samples);
 				canvas.DrawPoint({ x, y }, color4(color, 1));
 			}
 		}
