@@ -5,7 +5,7 @@
 
 namespace RealLight
 {
-	color3 Scene::Trace(const Ray& ray, float min, float max, RaycastHit& hit, int depth)
+	color3 Scene::Trace(const Ray& ray, float min, float max, RaycastHit& hit, int depth, float gradient)
 	{
         bool rayHit = false;
 
@@ -31,14 +31,14 @@ namespace RealLight
             }
             else
             {
-                return { 0, 0, 0 };
+                return hit.material->GetEmissive();
             }
         }
         else
         {
             glm::vec3 direction = glm::normalize(ray.dir);
-            float t = (direction.y + 1) * 0.5f;
-            return twerp(glm::vec3(0.5f, 0.7f, 1.0f), glm::vec3(1, 1, 1), t);
+            float t = (direction.y + 1) * gradient;
+            return twerp(_upper, _lower, t);
         }
 
         return color3{ 0 };

@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Materials\Dielectric.cpp" />
     <ClCompile Include="Materials\Lambert.cpp" />
     <ClCompile Include="Materials\Metal.cpp" />
     <ClCompile Include="Objects\Plane.cpp" />

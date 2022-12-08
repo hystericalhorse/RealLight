@@ -57,6 +57,9 @@
     <ClCompile Include="Objects\Plane.cpp">
       <Filter>Source Files\Objects</Filter>
     </ClCompile>
+    <ClCompile Include="Materials\Dielectric.cpp">
+      <Filter>Source Files\Renderer\Materials</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Renderer\Renderer.h">
