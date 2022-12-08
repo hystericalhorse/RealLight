@@ -4,21 +4,27 @@ using namespace std;
 
 int main(int, char**)
 {
+	const int width		= 800;
+	const int height	= 400;
+
+	const int samples	= 1;
+
+
 	// Init
 	RealLight::Renderer renderer;
 
 	renderer.Init();
-	renderer.CreateWindow(400, 200);
+	renderer.CreateWindow(width, height);
 
 	RealLight::Scene scene;
 
-	RealLight::Canvas canvas(400, 200, renderer);
+	RealLight::Canvas canvas(width, height, renderer);
 
 	scene.addObject
 	(
 		std::make_unique<RealLight::Sphere>
 		(
-			glm::vec3{ 0, 0.3, -1 }, 0.2f, std::make_unique<RealLight::Lambert>(color3{ 0, 1, 1 })
+			glm::vec3{ 0, 0.3, -1 }, 0.2f, std::make_unique<RealLight::Metal>(color3{ 1, 1, 1 }, 0.2)
 		)
 	);
 
@@ -26,19 +32,27 @@ int main(int, char**)
 	(
 		std::make_unique<RealLight::Sphere>
 		(
-			glm::vec3{ 0, 0, -1 }, 0.1f, std::make_unique<RealLight::Lambert>(color3{ 1, 0, 1 })
-			)
+			glm::vec3{ 0.5, 0.3, -1 }, 0.1f, std::make_unique<RealLight::Lambert>(color3{ 0, 1, 1 })
+		)
 	);
+
+	//scene.addObject
+	//(
+	//	std::make_unique<RealLight::Sphere>
+	//	(
+	//		glm::vec3{ 0, -0.6, -1 }, 0.5f, std::make_unique<RealLight::Metal>(color3{ 1 })
+	//	)
+	//);
 
 	scene.addObject
 	(
-		std::make_unique<RealLight::Sphere>
+		std::make_unique<RealLight::Plane>
 		(
-			glm::vec3{ 0, -0.6, -1 }, 0.5f, std::make_unique<RealLight::Lambert>(color3{ 1, 0, 0 })
-			)
+			glm::vec3{0, 0.1, 0}, glm::vec3{0, 1, 0}, std::make_unique<RealLight::Lambert>(color3{0.5, 0, 0.5})
+		)
 	);
 
-	RealLight::Camera camera({ 0, 0, -1.5 }, { 0, 0, 0 }, { 0, 1, 0 }, 60.0f, 400 / (float) 200);
+	RealLight::Camera camera({ 0, 0.5, -4.0 }, { 0, 0, 0 }, { 0, 1, 0 }, 20.0f, width / (float) height);
 
 	// Run
 	bool quit = false;
@@ -65,7 +79,7 @@ int main(int, char**)
 		// Render
 		canvas.Clear({0,0,0,1});
 		
-		renderer.Render(canvas, scene, camera, 1);
+		renderer.Render(canvas, scene, camera, samples);
 		
 		canvas.Update();
 

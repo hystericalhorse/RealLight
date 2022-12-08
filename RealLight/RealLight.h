@@ -8,6 +8,7 @@
 
 #include "Objects/Object.h"
 #include "Objects/Sphere.h"
+#include "Objects/Plane.h"
 
 #include <SDL.h>
 

@@ -56,3 +56,27 @@ inline glm::vec3 spherePoint()
 
     return point;
 }
+
+/// <summary>
+/// returns the absolute value of a float
+/// </summary>
+inline float absolute(float f)
+{
+    return (f < 0) ? -f : f;
+}
+
+/// <summary>
+/// returns the dot product of two vectors
+/// </summary>
+inline float dot(const glm::vec3& v, const glm::vec3& w)
+{
+    return (v.x * w.x) + (v.y * w.y) + (v.z * w.z);
+}
+
+/// <summary>
+/// returns the reflection of vector v
+/// </summary>
+inline glm::vec3 reflect(const glm::vec3& v, const glm::vec3& n)
+{
+    return v - ((n * dot(n, v)) * 2.0f);
+}
