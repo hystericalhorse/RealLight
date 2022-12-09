@@ -1,4 +1,5 @@
 #include "Renderer.h"
+#include "Math/MathUtils.h"
 #include <iostream>
 
 namespace RealLight
@@ -37,5 +38,48 @@ namespace RealLight
 			return false;
 		}
 		return true;
+	}
+
+	void Renderer::Render(Canvas& canvas, Scene& scene, Camera& camera, int samples)
+	{
+		for (int y = 0; y < canvas.GetHeight(); y++)
+		{
+			for (int x = 0; x < canvas.GetWidth(); x++)
+			{
+				color3 color{ 0 };
+				for (int i = 0; i < samples; i++)
+				{
+					glm::vec2 point = glm::vec2{ randomDecimal() + x, randomDecimal() + y } / glm::vec2{ canvas._width, canvas._height };
+
+					point.y = 1.0f - point.y;
+
+					Ray ray = camera.PointToRay(point);
+
+					RaycastHit raycastHit;
+					color += scene.Trace(ray, 0.01, 1000.0, raycastHit, 5);
+				}
+
+				color = color / color3(samples);
+				canvas.DrawPoint({ x, y }, color4(color, 1));
+			}
+		}
+	}
+
+	void Renderer::CopyCanvas(const Canvas& canvas)
+	{
+		SDL_RenderCopy(_renderer, canvas._texture, nullptr, nullptr);
+	}
+
+	void Renderer::Present()
+	{
+		SDL_RenderPresent(_renderer);
+	}
+
+	color3 Renderer::GetBackgroundByRay(const Ray& ray)
+	{
+		glm::vec3 direction = glm::normalize(ray.dir);
+		float t = 0.5f * (direction.y + 1.0f);
+
+		return twerp(color3{ 0.0f, 0.0f, 0.6f }, color3{ 0.4f, 0.0f, 0.4f }, t);
 	}
 }

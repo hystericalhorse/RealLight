@@ -19,12 +19,30 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Materials\Dielectric.cpp" />
+    <ClCompile Include="Materials\Lambert.cpp" />
+    <ClCompile Include="Materials\Metal.cpp" />
+    <ClCompile Include="Objects\Plane.cpp" />
+    <ClCompile Include="Objects\Sphere.cpp" />
+    <ClCompile Include="Renderer\Camera.cpp" />
+    <ClCompile Include="Renderer\Canvas.cpp" />
     <ClCompile Include="Renderer\Renderer.cpp" />
+    <ClCompile Include="Renderer\Scene.cpp" />
     <ClCompile Include="Run\Main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Math\Color.h" />
+    <ClInclude Include="Math\MathUtils.h" />
+    <ClInclude Include="Math\Ray.h" />
+    <ClInclude Include="Objects\Object.h" />
+    <ClInclude Include="Objects\Plane.h" />
+    <ClInclude Include="Objects\Sphere.h" />
     <ClInclude Include="RealLight.h" />
+    <ClInclude Include="Renderer\Camera.h" />
+    <ClInclude Include="Renderer\Canvas.h" />
+    <ClInclude Include="Renderer\Material.h" />
     <ClInclude Include="Renderer\Renderer.h" />
+    <ClInclude Include="Renderer\Scene.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -84,7 +102,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)ThirdParty\SDL2\include\;$(SolutionDir)ThirdParty\glm\glm\;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)ThirdParty\SDL2\include\;$(SolutionDir)ThirdParty\glm\;$(SolutionDir)ThirdParty\glm\glm\;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -118,7 +136,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)ThirdParty\SDL2\include\;$(SolutionDir)ThirdParty\glm\glm\;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)ThirdParty\SDL2\include\;$(SolutionDir)ThirdParty\glm\;$(SolutionDir)ThirdParty\glm\glm\;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
