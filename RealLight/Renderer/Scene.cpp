@@ -37,7 +37,10 @@ namespace RealLight
         else
         {
             glm::vec3 direction = glm::normalize(ray.dir);
-            float t = (direction.y + 1) * gradient;
+            
+
+            float t = (gradient_dir) ? (direction.y + 1) * gradient : (direction.x + 1) * gradient;
+
             return twerp(_upper, _lower, t);
         }
 

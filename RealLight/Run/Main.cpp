@@ -426,6 +426,201 @@ void Circles(RealLight::Scene& scene)
 			)
 	);
 
+	// The Great Ring ///////////////////////////////////////////////////////////////////////////////////
+
+	scene.addObject
+	(
+		std::make_unique<RealLight::Sphere>
+		(
+			glm::vec3{ 0, 2, 24 }, 1.0f, std::make_unique<RealLight::Emissive>(color3{ 4, 0 ,6 })
+			)
+	);
+
+	scene.addObject
+	(
+		std::make_unique<RealLight::Sphere>
+		(
+			glm::vec3{ 12, 2, 20 }, 1.0f, std::make_unique<RealLight::Emissive>(color3{ 0.2, 0, 10 })
+			)
+	);
+
+	scene.addObject
+	(
+		std::make_unique<RealLight::Sphere>
+		(
+			glm::vec3{ 20, 2, 12 }, 1.0f, std::make_unique<RealLight::Emissive>(color3{ 4, 0 ,6 })
+			)
+	);
+
+	scene.addObject
+	(
+		std::make_unique<RealLight::Sphere>
+		(
+			glm::vec3{ 24, 2, 0 }, 1.0f, std::make_unique<RealLight::Emissive>(color3{ 0.2, 0, 10 })
+			)
+	);
+
+	scene.addObject
+	(
+		std::make_unique<RealLight::Sphere>
+		(
+			glm::vec3{ 20, 2, -12 }, 1.0f, std::make_unique<RealLight::Emissive>(color3{ 4, 0 ,6 })
+			)
+	);
+
+	scene.addObject
+	(
+		std::make_unique<RealLight::Sphere>
+		(
+			glm::vec3{ 12, 2, -20 }, 1.0f, std::make_unique<RealLight::Emissive>(color3{ 0.2, 0, 10 })
+			)
+	);
+
+	scene.addObject
+	(
+		std::make_unique<RealLight::Sphere>
+		(
+			glm::vec3{ 0, 2, -24 }, 1.0f, std::make_unique<RealLight::Emissive>(color3{ 4, 0 ,6 })
+			)
+	);
+
+	scene.addObject
+	(
+		std::make_unique<RealLight::Sphere>
+		(
+			glm::vec3{ -12, 2, -20 }, 1.0f, std::make_unique<RealLight::Emissive>(color3{ 0.2, 0, 10 })
+			)
+	);
+
+	scene.addObject
+	(
+		std::make_unique<RealLight::Sphere>
+		(
+			glm::vec3{ -20, 2, -12 }, 1.0f, std::make_unique<RealLight::Emissive>(color3{ 4, 0 , 6 })
+			)
+	);
+
+	scene.addObject
+	(
+		std::make_unique<RealLight::Sphere>
+		(
+			glm::vec3{ -24, 2, 0 }, 1.0f, std::make_unique<RealLight::Emissive>(color3{ 0.2, 0, 10 })
+			)
+	);
+
+	scene.addObject
+	(
+		std::make_unique<RealLight::Sphere>
+		(
+			glm::vec3{ -20, 2, 12 }, 1.0f, std::make_unique<RealLight::Emissive>(color3{ 4, 0 ,6 })
+			)
+	);
+
+	scene.addObject
+	(
+		std::make_unique<RealLight::Sphere>
+		(
+			glm::vec3{ -12, 2, 20 }, 1.0f, std::make_unique<RealLight::Emissive>(color3{ 0.2, 0, 10 })
+			)
+	);
+
+	// The Greater Ring ///////////////////////////////////////////////////////////////////////////////////////
+
+	scene.addObject
+	(
+		std::make_unique<RealLight::Sphere>
+		(
+			glm::vec3{ 6, 2, 26 }, 0.5f, std::make_unique<RealLight::Emissive>(color3{ 3, 2, 6 })
+			)
+	);
+
+	scene.addObject
+	(
+		std::make_unique<RealLight::Sphere>
+		(
+			glm::vec3{ 18, 2, 18 }, 0.5f, std::make_unique<RealLight::Emissive>(color3{ 3, 2, 6 })
+			)
+	);
+
+	scene.addObject
+	(
+		std::make_unique<RealLight::Sphere>
+		(
+			glm::vec3{ 26, 2, 6 }, 0.5f, std::make_unique<RealLight::Emissive>(color3{ 3, 2, 6 })
+			)
+	);
+
+	scene.addObject
+	(
+		std::make_unique<RealLight::Sphere>
+		(
+			glm::vec3{ 26, 2, -6 }, 0.5f, std::make_unique<RealLight::Emissive>(color3{ 3, 2, 6 })
+			)
+	);
+
+	scene.addObject
+	(
+		std::make_unique<RealLight::Sphere>
+		(
+			glm::vec3{ 18, 2, -18 }, 0.5f, std::make_unique<RealLight::Emissive>(color3{ 3, 2, 6 })
+			)
+	);
+
+	scene.addObject
+	(
+		std::make_unique<RealLight::Sphere>
+		(
+			glm::vec3{ 6, 2, -26 }, 0.5f, std::make_unique<RealLight::Emissive>(color3{ 3, 2, 6 })
+			)
+	);
+
+	scene.addObject
+	(
+		std::make_unique<RealLight::Sphere>
+		(
+			glm::vec3{ -6, 2, -26 }, 0.5f, std::make_unique<RealLight::Emissive>(color3{ 3, 2, 6 })
+			)
+	);
+
+	scene.addObject
+	(
+		std::make_unique<RealLight::Sphere>
+		(
+			glm::vec3{ -18, 2, -18 }, 0.5f, std::make_unique<RealLight::Emissive>(color3{ 3, 2, 6 })
+			)
+	);
+
+	scene.addObject
+	(
+		std::make_unique<RealLight::Sphere>
+		(
+			glm::vec3{ -26, 2, -6 }, 0.5f, std::make_unique<RealLight::Emissive>(color3{ 3, 2, 6 })
+			)
+	);
+
+	scene.addObject
+	(
+		std::make_unique<RealLight::Sphere>
+		(
+			glm::vec3{ -26, 2, 6 }, 0.5f, std::make_unique<RealLight::Emissive>(color3{ 3, 2, 6 })
+			)
+	);
+
+	scene.addObject
+	(
+		std::make_unique<RealLight::Sphere>
+		(
+			glm::vec3{ -18, 2, 18 }, 0.5f, std::make_unique<RealLight::Emissive>(color3{ 3, 2, 6 })
+			)
+	);
+
+	scene.addObject
+	(
+		std::make_unique<RealLight::Sphere>
+		(
+			glm::vec3{ -6, 2, 26 }, 0.5f, std::make_unique<RealLight::Emissive>(color3{ 3, 2, 6 })
+			)
+	);
 
 	// Skylight ////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -441,12 +636,16 @@ void Circles(RealLight::Scene& scene)
 
 int main(int, char**)
 {
+	// 480 / 360
+	// 1280 / 720
+	// 1920 / 1080
+
 	const int width		= 1280;
 	const int height	= 720;
 
-	const int samples	= 1;
+	const int samples	= 50;
 
-	const float fov = 40.0f;
+	const float fov = 60.0f;
 
 	// Init
 	RealLight::Renderer renderer;
@@ -454,13 +653,14 @@ int main(int, char**)
 	renderer.Init();
 	renderer.CreateWindow(width, height);
 
-	RealLight::Scene scene({ 0.7, 0.2, 0.8 }, { 1, 1, 1 });
+	RealLight::Scene scene({ 0.80, 0.3, 0.8 }, { 0.2, 0.2, 0.69 }, false);
+	//RealLight::Scene scene({ 0.420, 0.4, 0.8 }, { 1.0, 1.0, 1.0 }, false);
 
 	RealLight::Canvas canvas(width, height, renderer);
 
 	Circles(scene);
 
-	RealLight::Camera camera({ 0, 40, 48 }, { 0, 0, 0 }, { 0, 1, 0 }, fov, width / (float) height);
+	RealLight::Camera camera({ 0, 25, 48 }, { 0, 0, 0 }, { 0, 1, 0 }, fov, width / (float) height);
 	//RealLight::Camera camera({ 0, 25, 0 }, { 0, 0, 0 }, { 0, 1, 0 }, fov, width / (float) height);
 	//RealLight::Camera camera({ 13, 2, 3 }, { 0, 0, 0 }, { 0, 1, 0 }, fov, width / (float) height);
 
